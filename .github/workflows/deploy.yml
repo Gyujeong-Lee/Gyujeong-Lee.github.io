@@ -49,7 +49,10 @@ jobs:
 
     - name: Istall dependencies
       run: yarn install
-
+    
+    - name: Test Unit
+      run: yarn test:unit
+      
     - name: Build Pages
       run: yearn build
       env:
