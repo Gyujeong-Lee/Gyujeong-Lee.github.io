@@ -50,6 +50,11 @@ jobs:
     - name: Istall dependencies
       run: yarn install
 
+    - name: Build Pages
+      run: yearn build
+      env:
+        NODE_ENV: production
+
     - name: Deploy to gh-pages
       uses: peaceiris/action-gh-pages@v3
       with: 
