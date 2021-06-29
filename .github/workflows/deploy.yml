@@ -34,3 +34,25 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+# deploy를 위한 코드
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@master
+
+    - name: Set up Node.js
+      uses: actions/setup-node@master
+      with:
+        node-version: 14.x
+
+    - name: Istall dependencies
+      run: yarn install
+
+    - name: Deploy to gh-pages
+      uses: peaceiris/action-gh-pages@v3
+      with: 
+        github_token: ${{ secrets.GITHUB_TOKEN}}
+        publish_dir: ./dist 
